@@ -1,5 +1,9 @@
 var buffButton = document.getElementById("buff-button");
-var results = document.getElementById("results");
+var directorBox = document.getElementById("director");
+var castBox = document.getElementById("cast");
+var releaseDateBox = document.getElementById("release-date");
+var plotBox = document.getElementById("plot");
+var opinionBox = document.getElementById("opinion");
 
 
 function getJson() {
@@ -13,8 +17,19 @@ function getJson() {
 	textRequest.addEventListener("load", function(){
 		var movie = JSON.parse(this.responseText);
 		console.log(movie);
-		var shortPlot = movie.Plot;
-		results.innerHTML = shortPlot;
+
+		var director = movie.Director;
+		var cast = movie.Actors;
+		var release = movie.Released;
+		var fullPlot = movie.Plot;
+		var opinion = movie.tomatoConsensus;
+
+		directorBox.innerHTML = director;
+		castBox.innerHTML = cast;
+		releaseDateBox.innerHTML = release;
+		plotBox.innerHTML = fullPlot;
+		opinionBox.innerHTML = opinion;
+
 
 	});
 	textRequest.open("GET", query);
