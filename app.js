@@ -14,6 +14,7 @@ function getJson() {
 	
 
 	var textRequest = new XMLHttpRequest();
+	
 	textRequest.addEventListener("load", function(){
 		var movie = JSON.parse(this.responseText);
 		console.log(movie);

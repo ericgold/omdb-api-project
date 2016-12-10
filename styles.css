@@ -1,0 +1,38 @@
+* {
+	border: 1px solid pink;
+}
+
+header,
+.container,
+.info-wrapper,
+.info-container,
+#controls-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.info-container {
+	width: 90%;
+}
+
+#controls-wrapper {
+	justify-content: center;
+}
+
+
+@media (min-width: 768px) {
+	header,
+	.info-wrapper {
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	#controls-wrapper {
+		width: 30%;
+		margin: 0 auto;
+	}
+
+	.info-container {
+		width: 30%;
+	}
+}
