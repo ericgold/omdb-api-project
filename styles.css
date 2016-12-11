@@ -1,6 +1,15 @@
 * {
-	border: 1px solid pink;
+	box-sizing: border-box;
 }
+
+/*
+356f69 dark green
+E2F3EB text
+353d82 dark blue
+6EC49D light green
+*/
+
+/****** LAYOUT ******/
 
 header,
 .container,
@@ -11,28 +20,150 @@ header,
 	flex-direction: column;
 }
 
-.info-container {
-	width: 90%;
+/* doesn't work to create full vh container*/
+.container {
+	min-height: calc(100vh - 11em);
 }
+
+/****** HEADER *****/
+
+header {
+	background-color: #356f69;
+	color: #E2F3EB;
+	padding: 0.25em 1em;
+}
+
+header a {
+	text-decoration: none;
+	color: #6EC49D;
+}
+
+#logo-wrapper {
+	font-family: 'Aref Ruqaa', serif;
+	margin-right: auto;
+}
+
+#logo-wrapper h1 {
+	font-size: 3em;
+	margin: 0em auto 0.25em auto;
+}
+
+header:hover #description-wrapper {
+	display: block;
+	z-index: 10;
+}
+
+#logo-wrapper h1 span {
+	color: #6EC49D;
+}
+
+#logo-wrapper h2 {
+	font-family: 'Lato', sans-serif;
+	margin: 0 auto 0.5em auto;
+}
+
+#description-wrapper {
+	display: none;
+	width: 90%;
+	font-family: 'Lato', sans-serif;
+}
+
+#description-wrapper p {
+	margin: 0.5em auto;
+}
+
+
+/****** CONTROLS ******/
 
 #controls-wrapper {
+	font-family: 'Lato', sans-serif;
 	justify-content: center;
+	background-color: #E2F3EB;
+	width: 100%;
 }
 
+#title {
+	width: 90%;
+	height: 3em;
+	font-size: 2em;
+	margin: 0.5em auto;
+	border: 4px solid #356f69;
+	border-radius: 8px;
+	padding: 0 0.5em;
+	color: #356f69;
+	outline: none;
+}
+
+#title:active,
+#title:focus {
+	border: #6EC49D;
+}
+
+#buff-button {
+	width: 90%;
+	height: 3em;
+	margin: 0.5em auto;
+	background-color: #356f69;
+	color: #E2F3EB;
+	border: none;
+	border-radius: 8px;
+	outline: none;
+}
+
+#buff-button:hover {
+	background-color: #6EC49D;
+	color: #356f69;
+}
+
+
+/****** MOVIE INFO CONTAINERS ******/
+
+.info-wrapper {
+	background-color: #E2F3EB;
+	padding: 1em;
+	font-family: 'Lato', sans-serif;
+}
+
+.info-container {
+	width: 90%;
+	color: #356f69;
+}
+
+.info-container h4 {
+	margin-bottom: 0.25em;
+}
+
+/****** FOOTER ******/
+
+footer {
+	height: 5em;
+	background-color: #356f69;
+}
+
+
+/****** MEDIA QUERIES ******/
 
 @media (min-width: 768px) {
 	header,
 	.info-wrapper {
 		flex-direction: row;
-		justify-content: center;
+		justify-content: space-around;
 	}
 
 	#controls-wrapper {
-		width: 30%;
 		margin: 0 auto;
+	}
+
+	#title, 
+	#buff-button {
+		width: 50%;
 	}
 
 	.info-container {
 		width: 30%;
+	}
+
+	#description-wrapper {
+		max-width: 50%;
 	}
 }
