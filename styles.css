@@ -66,6 +66,7 @@ header:hover #description-wrapper {
 	display: none;
 	width: 90%;
 	font-family: 'Lato', sans-serif;
+	padding: 0.5em 0.25em 0.25em 0.25em;
 }
 
 #description-wrapper p {
@@ -130,9 +131,15 @@ header:hover #description-wrapper {
 	color: #356f69;
 }
 
-.info-container h4 {
+.info-container h3 {
 	margin-bottom: 0.25em;
 }
+
+.info-container p {
+	margin-top: 0.25em;
+}
+
+
 
 /****** FOOTER ******/
 

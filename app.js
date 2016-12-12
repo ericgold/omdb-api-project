@@ -35,13 +35,13 @@ var opinionBox = document.getElementById("opinion");
 
 			clearBoxes();
 
-			directorBox.append(director);
-			castBox.append(cast);
-			releaseDateBox.append(release);
-			runtimeBox.append(runtime);
-			awardsBox.append(awards);
-			plotBox.append(fullPlot);
-			opinionBox.append(opinion);
+			directorBox.innerHTML += "<p>" + director + "</p>";
+			castBox.innerHTML += "<p>" + cast + "</p>";
+			releaseDateBox.innerHTML += "<p>" + release + "</p>";;
+			runtimeBox.innerHTML += "<p>" + runtime + "</p>"; 
+			awardsBox.innerHTML += "<p>" + awards + "</p>";
+			plotBox.innerHTML += "<p>" + fullPlot + "</p>";
+			opinionBox.innerHTML += "<p>" + opinion + "</p>";
 
 		});
 
