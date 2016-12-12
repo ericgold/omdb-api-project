@@ -1,13 +1,14 @@
 var buffButton = document.getElementById("buff-button");
-var directorBox = document.getElementById("director");
-var castBox = document.getElementById("cast");
-var releaseDateBox = document.getElementById("release-date");
-var runtimeBox = document.getElementById("runtime");
-var awardsBox = document.getElementById("awards");
-var plotBox = document.getElementById("plot");
-var opinionBox = document.getElementById("opinion");
 
 (function(exports){
+
+	var directorBox = document.getElementById("director");
+	var castBox = document.getElementById("cast");
+	var releaseDateBox = document.getElementById("release-date");
+	var runtimeBox = document.getElementById("runtime");
+	var awardsBox = document.getElementById("awards");
+	var plotBox = document.getElementById("plot");
+	var opinionBox = document.getElementById("opinion");
 
 	exports.getJson = function() {
 		var title = document.getElementById("title").value;
@@ -35,14 +36,30 @@ var opinionBox = document.getElementById("opinion");
 
 			clearBoxes();
 
-			directorBox.innerHTML += "<p>" + director + "</p>";
-			castBox.innerHTML += "<p>" + cast + "</p>";
-			releaseDateBox.innerHTML += "<p>" + release + "</p>";;
-			runtimeBox.innerHTML += "<p>" + runtime + "</p>"; 
-			awardsBox.innerHTML += "<p>" + awards + "</p>";
-			plotBox.innerHTML += "<p>" + fullPlot + "</p>";
-			opinionBox.innerHTML += "<p>" + opinion + "</p>";
+			/* thought I could create an object and loop
+			// instead of calling generateOutput() 7 times
+			// but it doesn't work yet
+			var output = {
+				directorBox : director,
+				castBox : cast,
+				releaseDateBox : release,
+				awardsBox : awards,
+				plotBox : fullPlot,
+				opinionBox : opinion
+			}
 
+			for (key in output) {
+				generateOutput(key, output[key]);
+			};
+			*/
+
+			generateOutput(directorBox, director);
+			generateOutput(castBox, cast);
+			generateOutput(releaseDateBox, release);
+			generateOutput(runtimeBox, runtime);
+			generateOutput(awardsBox, awards);
+			generateOutput(plotBox, fullPlot);
+			generateOutput(opinionBox, opinion);
 		});
 
 		textRequest.open("GET", query);
@@ -56,6 +73,12 @@ var opinionBox = document.getElementById("opinion");
 			awardsBox.innerHTML = "";
 			plotBox.innerHTML = "";
 			opinionBox.innerHTML = "";
+		}
+
+		function generateOutput(container, content) {
+			var outputGraf = document.createElement("p");
+			outputGraf.innerText = content;
+			container.append(outputGraf);
 		}
 }
 
