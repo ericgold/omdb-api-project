@@ -119,6 +119,7 @@ header:hover #description-wrapper {
 /****** MOVIE INFO CONTAINERS ******/
 
 .info-wrapper {
+	min-height: calc(100vh - 23em);
 	background-color: #E2F3EB;
 	padding: 1em;
 	font-family: 'Lato', sans-serif;
