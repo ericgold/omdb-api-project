@@ -20,7 +20,7 @@ var buffButton = document.getElementById("buff-button");
 
 		textRequest.addEventListener("load", function(){
 			var movie = JSON.parse(this.responseText);
-			//console.log(movie);
+			console.log(movie);
 
 			var director = movie.Director;
 			var cast = movie.Actors;
@@ -30,10 +30,12 @@ var buffButton = document.getElementById("buff-button");
 			var fullPlot = movie.Plot;
 			var opinion = movie.tomatoConsensus;
 
+			/*
 			if (opinion = "N/A") {
-				opinion = "You're on your own, bub."
+				opinion = "You're on your own, bub.";
 			}
-
+			*/
+			
 			clearBoxes();
 
 			/* thought I could create an object and loop
