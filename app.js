@@ -9,7 +9,7 @@ var buffButton = document.getElementById("buff-button");
 	var awardsBox = document.getElementById("awards");
 	var plotBox = document.getElementById("plot");
 	var opinionBox = document.getElementById("opinion");
-	var heading = document.getElementByClassName();
+	var headings = document.querySelectorAll(".info-container h3");
 
 	exports.getJson = function() {
 		var title = document.getElementById("title").value;
@@ -38,6 +38,7 @@ var buffButton = document.getElementById("buff-button");
 			*/
 			
 			clearBoxes();
+			showHeadings();
 
 			/* thought I could create an object and loop
 			// instead of calling generateOutput() 7 times
@@ -55,7 +56,7 @@ var buffButton = document.getElementById("buff-button");
 				generateOutput(key, output[key]);
 			};
 			*/
-
+			
 			generateOutput(directorBox, director);
 			generateOutput(castBox, cast);
 			generateOutput(releaseDateBox, release);
@@ -63,6 +64,7 @@ var buffButton = document.getElementById("buff-button");
 			generateOutput(awardsBox, awards);
 			generateOutput(plotBox, fullPlot);
 			generateOutput(opinionBox, opinion);
+			
 		});
 
 		textRequest.open("GET", query);
@@ -78,8 +80,10 @@ var buffButton = document.getElementById("buff-button");
 			opinionBox.innerHTML = "";
 		}
 
-		function toggleHeadings() {
-
+		function showHeadings() {
+			for (var i=0; i<headings.length; i++) {
+				headings[i].classList.remove("hidden");
+			}
 		}
 
 		function generateOutput(container, content) {
