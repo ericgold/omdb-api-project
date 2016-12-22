@@ -139,7 +139,9 @@ header:hover #description-wrapper {
 	margin-top: 0.25em;
 }
 
-
+.hidden {
+	display: none;
+}
 
 /****** FOOTER ******/
 

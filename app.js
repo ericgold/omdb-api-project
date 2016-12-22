@@ -9,6 +9,7 @@ var buffButton = document.getElementById("buff-button");
 	var awardsBox = document.getElementById("awards");
 	var plotBox = document.getElementById("plot");
 	var opinionBox = document.getElementById("opinion");
+	var heading = document.getElementByClassName();
 
 	exports.getJson = function() {
 		var title = document.getElementById("title").value;
@@ -75,6 +76,10 @@ var buffButton = document.getElementById("buff-button");
 			awardsBox.innerHTML = "";
 			plotBox.innerHTML = "";
 			opinionBox.innerHTML = "";
+		}
+
+		function toggleHeadings() {
+
 		}
 
 		function generateOutput(container, content) {
