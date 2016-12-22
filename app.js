@@ -17,6 +17,7 @@ var buffButton = document.getElementById("buff-button");
 		var query = "http://www.omdbapi.com/?plot=full&type=movie&tomatoes=true&t=";
 		query += title;
 
+
 		var textRequest = new XMLHttpRequest();
 
 		textRequest.addEventListener("load", function(){
@@ -31,6 +32,42 @@ var buffButton = document.getElementById("buff-button");
 			var fullPlot = movie.Plot;
 			var opinion = movie.tomatoConsensus;
 
+			var output = [
+				{
+					box: directorBox,
+					content: director
+				},
+				{
+					box: castBox,
+					content: cast
+				},
+				{
+					box: releaseDateBox,
+					content: release
+				},
+				{
+					box: awardsBox,
+					content: awards
+				},
+				{
+					box: plotBox,
+					content: fullPlot
+				},
+				{
+					box: opinionBox,
+					content: opinion
+				}
+
+			]
+
+			function generateOutput() {
+				for (var i=0; i<output.length; i++) {
+					var outputGraf = document.createElement("p");
+					outputGraf.innerText = output[i].content;
+					output[i].box.append(outputGraf);
+				}
+			}
+
 			/*
 			if (opinion = "N/A") {
 				opinion = "You're on your own, bub.";
@@ -39,32 +76,7 @@ var buffButton = document.getElementById("buff-button");
 			
 			clearBoxes();
 			showHeadings();
-
-			/* thought I could create an object and loop
-			// instead of calling generateOutput() 7 times
-			// but it doesn't work yet
-			var output = {
-				directorBox : director,
-				castBox : cast,
-				releaseDateBox : release,
-				awardsBox : awards,
-				plotBox : fullPlot,
-				opinionBox : opinion
-			}
-
-			for (key in output) {
-				generateOutput(key, output[key]);
-			};
-			*/
-			
-			generateOutput(directorBox, director);
-			generateOutput(castBox, cast);
-			generateOutput(releaseDateBox, release);
-			generateOutput(runtimeBox, runtime);
-			generateOutput(awardsBox, awards);
-			generateOutput(plotBox, fullPlot);
-			generateOutput(opinionBox, opinion);
-			
+			generateOutput();
 		});
 
 		textRequest.open("GET", query);
@@ -85,12 +97,7 @@ var buffButton = document.getElementById("buff-button");
 				headings[i].classList.remove("hidden");
 			}
 		}
-
-		function generateOutput(container, content) {
-			var outputGraf = document.createElement("p");
-			outputGraf.innerText = content;
-			container.append(outputGraf);
-		}
+		
 }
 
 }(typeof window === 'undefined' || window === null ? global.movieBuff = {} : window.movieBuff = {}))
